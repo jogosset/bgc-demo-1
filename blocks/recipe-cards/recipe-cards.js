@@ -12,6 +12,11 @@ const THEMES = {
   dark: 'var(--brook-ink, #40464b)',
 };
 
+// Icon name implies a default art-panel theme, so authors only need one icon cell.
+const ICON_THEME = {
+  peach: 'green', beef: 'deep', shrimp: 'dark',
+};
+
 function icon(name) {
   const key = (name || '').trim().toLowerCase();
   return `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[key] || ''}</svg>`;
@@ -19,7 +24,7 @@ function icon(name) {
 
 /**
  * loads and decorates the recipe-cards block
- * Cells per row: theme, icon, eyebrow, title, description, time, servings
+ * Cells per row: [icon name] [eyebrow, title, description, "time · servings" — one per paragraph]
  * @param {Element} block The block element
  */
 export default async function decorate(block) {
@@ -27,23 +32,27 @@ export default async function decorate(block) {
   list.className = 'recipe-cards-list';
 
   [...block.children].forEach((row) => {
-    const [
-      themeCell, iconCell, eyebrowCell, titleCell, descCell, timeCell, servingsCell,
-    ] = [...row.children];
-    const themeKey = (themeCell ? themeCell.textContent.trim().toLowerCase() : 'green');
-    const bg = THEMES[themeKey] || THEMES.green;
+    const [iconCell, textCell] = [...row.children];
+    const iconName = (iconCell ? iconCell.textContent.trim().toLowerCase() : '');
+    const bg = THEMES[ICON_THEME[iconName]] || THEMES.green;
+
+    const lines = textCell ? [...textCell.children].filter((el) => el.textContent.trim()) : [];
+    const [eyebrowLine, titleLine, descLine, metaLine] = lines;
+    const [timeText, servingsText] = metaLine
+      ? metaLine.textContent.split('·').map((s) => s.trim())
+      : [];
 
     const card = document.createElement('article');
     card.className = 'recipe-cards-card';
     card.innerHTML = `
-      <div class="recipe-cards-art" style="background:${bg};">${icon(iconCell ? iconCell.textContent : '')}</div>
+      <div class="recipe-cards-art" style="background:${bg};">${icon(iconName)}</div>
       <div class="recipe-cards-body">
-        <span class="recipe-cards-eyebrow">${eyebrowCell ? eyebrowCell.textContent.trim() : ''}</span>
-        <h3>${titleCell ? titleCell.textContent.trim() : ''}</h3>
-        <p>${descCell ? descCell.textContent.trim() : ''}</p>
+        <span class="recipe-cards-eyebrow">${eyebrowLine ? eyebrowLine.textContent.trim() : ''}</span>
+        <h3>${titleLine ? titleLine.textContent.trim() : ''}</h3>
+        <p>${descLine ? descLine.textContent.trim() : ''}</p>
         <div class="recipe-cards-meta">
-          ${timeCell && timeCell.textContent.trim() ? `<span>${icon('clock')}${timeCell.textContent.trim()}</span>` : ''}
-          ${servingsCell && servingsCell.textContent.trim() ? `<span>${icon('users')}${servingsCell.textContent.trim()}</span>` : ''}
+          ${timeText ? `<span>${icon('clock')}${timeText}</span>` : ''}
+          ${servingsText ? `<span>${icon('users')}${servingsText}</span>` : ''}
         </div>
       </div>
     `;
