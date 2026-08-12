@@ -71,7 +71,7 @@
 .brand-story .brand-story-stats strong {
   font-family: 'Roboto Slab', var(--type-base-font-family);
   font-size: 2rem;
-  color: var(--brook-green);
+  color: #fff;
 }
 
 .brand-story .brand-story-stats span {
