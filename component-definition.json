@@ -104,6 +104,16 @@
             }
           },
           "description": "A full-width colored band with a heading, supporting text, and a single call-to-action button. First cell is heading + paragraph, second cell is the CTA link."
+        },
+        {
+          "id": "hero-v2",
+          "title": "Hero V2",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div><div>Badge</div><div><p>Pickup · Delivery · In-Store</p></div></div><div><div>Heading</div><div><p>Fresh food, <em>neighborhood</em> heart.</p></div></div><div><div>Lead</div><div><p>Four generations of picking the ripest produce and knowing our neighbors by name.</p></div></div><div><div>Primary CTA</div><div><p><a href=\"/produce\">Order Pickup</a></p></div></div><div><div>Secondary CTA</div><div><p><a href=\"/delivery\">Order Delivery</a></p></div></div><div><div>Mode 1</div><div><p>Free Curbside Pickup</p></div></div><div><div>Mode 2</div><div><p>Same-Day Delivery</p></div></div><div><div>Tag</div><div><p>Hatch Chile Season is Here</p></div></div><div><div>Square 1</div><div><p>#F2A900</p></div></div><div><div>Square 2</div><div><p>#2E7D32</p></div></div><div><div>Square 3</div><div><p>#D71920</p></div></div><div><div>Square 4</div><div><p>#4CAF50</p></div></div>"
+            }
+          },
+          "description": "A bold two-column hero banner with a badge, highlighted heading, up to 3 CTAs, mode pills, and a 2x2 grid of colored image tiles. Background can be an image, a flat color, or the default red/gold gradient; each tile can hold a color and/or an image from the assets repository."
         }
       ]
     },
