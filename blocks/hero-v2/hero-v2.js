@@ -59,10 +59,11 @@ function readSettings(rows) {
  *
  * Row 1 (required) is the main content row and flows naturally, exactly
  * like the default hero block: a heading (italicize a word/phrase to
- * highlight it in gold), lead paragraph(s), and button links (authored
- * with the site's normal **bold** = primary / *italic* = outline /
- * ***bold italic*** = accent convention). Its second cell, if present,
- * holds the section's background image.
+ * highlight it in gold), lead paragraph(s), and button links, authored
+ * with the site's normal convention — wrap a link in **bold** for a
+ * primary (red) button, *italic* for an outline button, or ***bold
+ * italic*** for a high-impact (dark) button. Row 1's second cell, if
+ * present, holds the section's background image.
  *
  * Rows 2+ are optional [Label] / [Value] settings rows — see README.
  * @param {Element} block The block element
@@ -90,9 +91,21 @@ export default async function decorate(block) {
   if (contentCell) {
     while (contentCell.firstElementChild) copy.append(contentCell.firstElementChild);
   }
-  copy.querySelectorAll(':scope > p:not(.button-wrapper)').forEach((p) => {
-    p.classList.add('hero-v2-lead');
-  });
+
+  // Style top-level paragraphs that aren't CTA buttons as lead copy.
+  [...copy.children]
+    .filter((el) => el.tagName === 'P' && !el.classList.contains('button-wrapper'))
+    .forEach((p) => p.classList.add('hero-v2-lead'));
+
+  // Group the CTA button paragraphs (converted by the site-wide
+  // decorateButtons pass) into one flex row.
+  const buttonWrappers = [...copy.children].filter((el) => el.classList.contains('button-wrapper'));
+  if (buttonWrappers.length) {
+    const ctaWrap = document.createElement('div');
+    ctaWrap.className = 'hero-v2-ctas';
+    buttonWrappers[0].before(ctaWrap);
+    buttonWrappers.forEach((p) => ctaWrap.append(p));
+  }
 
   if (config.modes && config.modes.length) {
     const modesWrap = document.createElement('div');
