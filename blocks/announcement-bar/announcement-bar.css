@@ -4,7 +4,7 @@
   background: var(--brook-green-deep);
   color: #fff;
   text-align: center;
-  padding: 10px 16px;
+  padding: 5px 16px;
   font-family: Overpass, var(--type-base-font-family);
   font-size: 2.55rem;
   letter-spacing: 0.01em;
@@ -12,6 +12,7 @@
 
 .announcement-bar .announcement-bar-text {
   margin: 0;
+  line-height: 1.1;
 }
 
 .announcement-bar strong {
