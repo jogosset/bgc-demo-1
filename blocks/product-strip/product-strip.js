@@ -15,6 +15,7 @@ function buildIcon(name) {
 
 /**
  * loads and decorates the product-strip block
+ * Cells per row: [icon name] [name, unit, price, optional badge — one per paragraph]
  * @param {Element} block The block element
  */
 export default async function decorate(block) {
@@ -23,17 +24,19 @@ export default async function decorate(block) {
 
   [...block.children].forEach((row) => {
     const cells = [...row.children];
-    const [iconCell, nameCell, unitCell, priceCell, badgeCell] = cells;
-    const badgeText = badgeCell ? badgeCell.textContent.trim() : '';
+    const [iconCell, textCell] = cells;
+    const lines = textCell ? [...textCell.children].filter((el) => el.textContent.trim()) : [];
+    const [nameLine, unitLine, priceLine, badgeLine] = lines;
+    const badgeText = badgeLine ? badgeLine.textContent.trim() : '';
 
     const card = document.createElement('article');
     card.className = 'product-strip-card';
     card.innerHTML = `
       ${badgeText ? `<span class="product-strip-badge">${badgeText}</span>` : ''}
       <div class="product-strip-icon">${buildIcon(iconCell ? iconCell.textContent : '')}</div>
-      <h3>${nameCell ? nameCell.textContent.trim() : ''}</h3>
-      <p class="product-strip-unit">${unitCell ? unitCell.textContent.trim() : ''}</p>
-      <p class="product-strip-price">${priceCell ? priceCell.textContent.trim() : ''}</p>
+      <h3>${nameLine ? nameLine.textContent.trim() : ''}</h3>
+      <p class="product-strip-unit">${unitLine ? unitLine.textContent.trim() : ''}</p>
+      <p class="product-strip-price">${priceLine ? priceLine.textContent.trim() : ''}</p>
     `;
     scroller.append(card);
   });
