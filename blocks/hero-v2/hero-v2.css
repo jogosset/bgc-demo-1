@@ -1,0 +1,212 @@
+.hero-v2 {
+  --hero-v2-red: #d71920;
+  --hero-v2-red-dark: #a8141a;
+  --hero-v2-gold: #f2a900;
+  --hero-v2-green: #2e7d32;
+  --hero-v2-ink: #23272b;
+
+  position: relative;
+  overflow: hidden;
+  padding: 48px 24px 64px;
+  color: var(--hero-v2-text-color, #fff);
+  background: var(--hero-v2-background-color, linear-gradient(120deg, #7c1216 0%, var(--hero-v2-red) 45%, #b7401f 75%, var(--hero-v2-gold) 130%));
+}
+
+.hero-v2 .hero-v2-bg-image {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+}
+
+.hero-v2 .hero-v2-bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-v2 .hero-v2-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-v2 .hero-v2-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgb(255 255 255 / 15%);
+  border: 1px solid rgb(255 255 255 / 35%);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-v2-copy h1 {
+  font-family: 'Roboto Slab', var(--type-base-font-family);
+  font-size: 2.4rem;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  color: var(--hero-v2-text-color, #fff);
+}
+
+.hero-v2-copy h1 em {
+  font-style: normal;
+  color: var(--hero-v2-gold);
+}
+
+.hero-v2 .hero-v2-lead {
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin: 0 0 24px;
+  color: var(--hero-v2-text-color, rgb(255 255 255 / 92%));
+}
+
+.hero-v2 .hero-v2-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.hero-v2 .hero-v2-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.15s ease;
+}
+
+.hero-v2 .hero-v2-btn:hover {
+  transform: translateY(-2px);
+}
+
+.hero-v2 .hero-v2-btn-primary {
+  background: var(--hero-v2-red);
+  color: #fff;
+}
+
+.hero-v2 .hero-v2-btn-secondary {
+  background: var(--hero-v2-ink);
+  color: #fff;
+}
+
+.hero-v2 .hero-v2-btn-tertiary {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+.hero-v2 .hero-v2-modes {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-v2 .hero-v2-mode {
+  background: rgb(255 255 255 / 12%);
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.hero-v2 .hero-v2-visual {
+  position: relative;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 20%);
+}
+
+.hero-v2 .hero-v2-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 100%;
+  width: 100%;
+}
+
+.hero-v2 .hero-v2-square {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-v2 .hero-v2-square:nth-child(1) {
+  background: var(--square-color, linear-gradient(135deg, #f2a900, #e08c00));
+}
+
+.hero-v2 .hero-v2-square:nth-child(2) {
+  background: var(--square-color, linear-gradient(135deg, #2e7d32, #1b5e20));
+}
+
+.hero-v2 .hero-v2-square:nth-child(3) {
+  background: var(--square-color, linear-gradient(135deg, #d71920, #8f0f14));
+}
+
+.hero-v2 .hero-v2-square:nth-child(4) {
+  background: var(--square-color, linear-gradient(135deg, #4caf50, #2e7d32));
+}
+
+.hero-v2 .hero-v2-square picture {
+  width: min(70%, 140px);
+  height: min(70%, 140px);
+}
+
+.hero-v2 .hero-v2-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgb(0 0 0 / 25%);
+}
+
+.hero-v2 .hero-v2-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: #fff;
+  color: var(--hero-v2-ink);
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 9px 14px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+}
+
+@media (min-width: 900px) {
+  .hero-v2 {
+    padding: 64px 32px 90px;
+  }
+
+  .hero-v2 .hero-v2-inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+  }
+
+  .hero-v2-copy h1 {
+    font-size: 3.6rem;
+  }
+
+  .hero-v2 .hero-v2-visual {
+    height: 380px;
+  }
+}
