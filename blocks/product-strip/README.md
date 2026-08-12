@@ -8,15 +8,12 @@ A horizontally scrolling row of featured product cards (name, unit, price, optio
 
 ### Content Model
 
-One row per product, up to five cells each:
+One row per product, two cells each:
 
 | Cell | Content | Description |
 |------|---------|--------------|
 | 1 | icon name | One of: `peach`, `tomato`, `shrimp`, `beef`, `bread`, `corn`, `carton`. Unrecognized names render no icon glyph. |
-| 2 | text | Product name |
-| 3 | text | Unit (e.g. "per lb", "4 ears") |
-| 4 | text | Price |
-| 5 | text (optional) | Badge label (e.g. "Peak season"); omit the cell or leave empty to skip the badge |
+| 2 | up to four paragraphs | In order: product name, unit (e.g. "per lb"), price, optional badge label (e.g. "Peak season"). Omit the fourth paragraph to skip the badge. |
 
 <!-- No configuration keys, URL parameters, local storage, or events used by this block. -->
 
