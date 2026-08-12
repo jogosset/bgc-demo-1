@@ -1,0 +1,57 @@
+.cta-banner {
+  --brook-ink: #40464b;
+
+  background: var(--brook-ink);
+  color: #fff;
+  padding: 32px 16px;
+}
+
+.cta-banner .cta-banner-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cta-banner .cta-banner-copy h2 {
+  font-family: 'Roboto Slab', var(--type-base-font-family);
+  margin: 0 0 6px;
+}
+
+.cta-banner .cta-banner-copy p {
+  margin: 0;
+  color: rgb(255 255 255 / 80%);
+  max-width: 46ch;
+}
+
+.cta-banner .cta-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border: 1.5px solid #fff;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.cta-banner .cta-banner-cta:hover {
+  background: #fff;
+  color: var(--brook-ink);
+}
+
+@media (min-width: 900px) {
+  .cta-banner {
+    padding: 40px 32px;
+  }
+
+  .cta-banner .cta-banner-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

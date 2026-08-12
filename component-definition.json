@@ -34,6 +34,76 @@
               ]
             }
           }
+        },
+        {
+          "id": "announcement-bar",
+          "title": "Announcement Bar",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<p>Serving Texas, Louisiana &amp; Arkansas neighborhoods since 1928 — <strong>free pickup</strong> on orders $35+</p>"
+            }
+          },
+          "description": "A single-line promo strip, typically placed under the header (e.g. free shipping threshold, store hours)."
+        },
+        {
+          "id": "trust-strip",
+          "title": "Trust Strip",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div><div>truck</div><div>Pickup in 2 hours</div><div>Order by 10am, we'll have it curbside by lunch.</div></div><div><div>map</div><div>Same-day delivery</div><div>Across Texas, Louisiana &amp; Arkansas neighborhoods.</div></div><div><div>tag</div><div>eCoupons that clip themselves</div><div>Savings load straight to your card at checkout.</div></div><div><div>star</div><div>YourPoints Rewards</div><div>Earn on every trip, in-store or online.</div></div>"
+            }
+          },
+          "description": "A row of 4 icon+heading+text trust badges (e.g. shipping, delivery, coupons, rewards). First cell of each row is an icon name: truck, map, tag, or star."
+        },
+        {
+          "id": "department-grid",
+          "title": "Department Grid",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div><div>peach</div><div><a href=\"/produce\">Produce — Texas grown, picked this week</a></div></div><div><div>shrimp</div><div><a href=\"/meat\">Meat &amp; Seafood — cut fresh, never frozen twice</a></div></div><div><div>bread</div><div><a href=\"/bakery\">Bakery</a></div></div><div><div>milk</div><div><a href=\"/dairy\">Dairy &amp; Eggs</a></div></div>"
+            }
+          },
+          "description": "A grid of department tiles, each linking to a category. First two rows render as wide tiles. First cell of each row is an icon name: peach, shrimp, bread, milk, jar, cup, flower, heart, or paw."
+        },
+        {
+          "id": "product-strip",
+          "title": "Product Strip",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div><div>peach</div><div>Hill Country Peaches</div><div>per lb</div><div>$2.49</div><div>Peak season</div></div><div><div>beef</div><div>Certified Angus Brisket</div><div>per lb</div><div>$5.49</div><div></div></div><div><div>bread</div><div>Farmhouse Sourdough Loaf</div><div>baked daily</div><div>$4.29</div><div></div></div>"
+            }
+          },
+          "description": "A horizontally scrolling row of featured product cards with name, unit, and price. Cells per row: icon name, product name, unit, price, optional badge. Icon names: peach, tomato, shrimp, beef, bread, corn, carton."
+        },
+        {
+          "id": "brand-story",
+          "title": "Brand Story",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div><div>1928</div><div><h2>Four generations. One hometown.</h2><p>In 1928, Wood T. Brookshire opened a 2,500-square-foot grocery on the courthouse square in Tyler, Texas.</p></div></div><div><div>1928</div><div>Founded in Tyler, TX</div></div><div><div>3</div><div>States we call home</div></div><div><div>4</div><div>Generations of Brookshires</div></div>"
+            }
+          },
+          "description": "A heritage/about section: founding-year seal badge, story copy, and a row of stats. First row is [year] [heading + paragraphs]; following rows are [stat value] [stat label] pairs."
+        },
+        {
+          "id": "recipe-cards",
+          "title": "Recipe Cards",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div><div>green</div><div>peach</div><div>Baking</div><div>Hill Country Peach Cobbler</div><div>A brown-butter crust and this week's peaches.</div><div>50 min</div><div>Serves 8</div></div><div><div>deep</div><div>beef</div><div>Weeknight</div><div>Brisket Tacos, East Texas Salsa</div><div>Slow-smoked brisket, charred tomato salsa, warm tortillas.</div><div>30 min</div><div>Serves 4</div></div>"
+            }
+          },
+          "description": "A grid of recipe cards with a colored icon panel, category eyebrow, title, description, and time/servings meta. Cells per row: theme (green, deep, or dark), icon name, eyebrow, title, description, time, servings."
+        },
+        {
+          "id": "cta-banner",
+          "title": "CTA Banner",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div><div><h2>Every trip pays you back.</h2><p>Join YourPoints free — digital coupons, points toward groceries and fuel, and a little something on your birthday.</p></div><div><a href=\"/rewards\">Join YourPoints</a></div></div>"
+            }
+          },
+          "description": "A full-width colored band with a heading, supporting text, and a single call-to-action button. First cell is heading + paragraph, second cell is the CTA link."
         }
       ]
     },

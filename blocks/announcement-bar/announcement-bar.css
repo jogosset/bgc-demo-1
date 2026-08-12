@@ -1,0 +1,25 @@
+.announcement-bar {
+  --brook-green-deep: #35692f;
+
+  background: var(--brook-green-deep);
+  color: #fff;
+  text-align: center;
+  padding: 10px 16px;
+  font-family: Overpass, var(--type-base-font-family);
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+.announcement-bar .announcement-bar-text {
+  margin: 0;
+}
+
+.announcement-bar strong {
+  font-weight: 700;
+}
+
+@media (min-width: 600px) {
+  .announcement-bar {
+    font-size: 0.9rem;
+  }
+}
