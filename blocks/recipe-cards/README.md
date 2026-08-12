@@ -8,17 +8,12 @@ A grid of recipe cards, each with a colored icon panel, category eyebrow, title,
 
 ### Content Model
 
-One row per recipe, seven cells each:
+One row per recipe, two cells each:
 
 | Cell | Content | Description |
 |------|---------|--------------|
-| 1 | theme | One of: `green`, `deep`, `dark` — controls the icon panel's background color. Unrecognized values fall back to `green`. |
-| 2 | icon name | One of: `peach`, `beef`, `shrimp`. Unrecognized names render no icon glyph. |
-| 3 | text | Eyebrow/category label (e.g. "Baking") |
-| 4 | text | Recipe title |
-| 5 | text | Short description |
-| 6 | text (optional) | Time (e.g. "50 min"); omit to hide |
-| 7 | text (optional) | Servings (e.g. "Serves 8"); omit to hide |
+| 1 | icon name | One of: `peach`, `beef`, `shrimp`. Also picks the art panel's theme (peach→green, beef→deep, shrimp→dark). |
+| 2 | up to four paragraphs | In order: eyebrow/category (e.g. "Baking"), recipe title, short description, and a "time · servings" line (e.g. "50 min · Serves 8"). Omit the last paragraph to hide the meta row. |
 
 <!-- No configuration keys, URL parameters, local storage, or events used by this block. -->
 
