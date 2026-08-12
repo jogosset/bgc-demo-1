@@ -23,16 +23,12 @@
   color: var(--hero-text-color, var(--background-color));
 }
 
-/* Lead paragraph (the text right after the heading): right-align it so
-   it lines up with the heading's right edge, and let it wrap within a
-   narrower column. Any CTA link paragraph that follows stays full width,
-   left-aligned under it. */
+/* Lead paragraph (the text right after the heading): keep it flush with
+   the heading's left edge but narrower than the full block, so it wraps
+   into a couple of lines. The CTA link paragraph that follows stays
+   left-aligned underneath it too (default block flow). */
 .hero h1 + p {
-  margin-left: auto;
-  margin-right: 0;
-  width: fit-content;
   max-width: 520px;
-  text-align: right;
 }
 
 .hero picture {
