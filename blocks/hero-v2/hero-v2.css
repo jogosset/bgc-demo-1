@@ -131,9 +131,11 @@
 }
 
 .hero-v2 .hero-v2-modes {
+  align-self: flex-end;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .hero-v2 .hero-v2-mode {
