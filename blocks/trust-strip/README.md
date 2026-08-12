@@ -8,13 +8,12 @@ A row of icon + heading + text trust badges (e.g. shipping speed, delivery cover
 
 ### Content Model
 
-One row per badge, three cells each:
+One row per badge, two cells each:
 
 | Cell | Content | Description |
 |------|---------|--------------|
 | 1 | icon name | One of: `truck`, `map`, `tag`, `star`. Unrecognized names fall back to `star`. |
-| 2 | text | Badge heading |
-| 3 | text | Badge description |
+| 2 | two paragraphs | First paragraph is the badge heading, second is the description. |
 
 <!-- No configuration keys, URL parameters, local storage, or events used by this block. -->
 
