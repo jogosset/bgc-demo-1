@@ -15,27 +15,30 @@ function buildIcon(name) {
 
 /**
  * loads and decorates the trust-strip block
+ * Cells per row: [icon name] [heading paragraph, body paragraph]
  * @param {Element} block The block element
  */
 export default async function decorate(block) {
   [...block.children].forEach((row) => {
     const cells = [...row.children];
-    const [iconCell, headingCell, bodyCell] = cells;
+    const [iconCell, textCell] = cells;
     const iconName = iconCell ? iconCell.textContent : '';
+    const paragraphs = textCell ? [...textCell.children].filter((el) => el.textContent.trim()) : [];
+
     const item = document.createElement('div');
     item.className = 'trust-strip-item';
     item.append(buildIcon(iconName));
 
     const text = document.createElement('div');
     text.className = 'trust-strip-text';
-    if (headingCell) {
+    if (paragraphs[0]) {
       const h3 = document.createElement('h3');
-      h3.textContent = headingCell.textContent.trim();
+      h3.textContent = paragraphs[0].textContent.trim();
       text.append(h3);
     }
-    if (bodyCell) {
+    if (paragraphs[1]) {
       const p = document.createElement('p');
-      p.textContent = bodyCell.textContent.trim();
+      p.textContent = paragraphs[1].textContent.trim();
       text.append(p);
     }
     item.append(text);
