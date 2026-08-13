@@ -1,6 +1,5 @@
 .product-strip {
-  --brook-green: #428445;
-  --brook-green-tint: #ecf2ec;
+  --brook-red: #d71920;
 
   padding: 8px 16px 32px;
 }
@@ -15,87 +14,107 @@
 }
 
 .product-strip .product-strip-card {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   flex: none;
   scroll-snap-align: start;
-  width: 160px;
-  padding: 16px;
+  width: 220px;
   background: #fff;
   border: 1px solid var(--color-neutral-300, #e8e8e8);
-  border-radius: 10px;
-  text-align: center;
-}
-
-.product-strip .product-strip-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: var(--brook-green);
-  color: #fff;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 999px;
-}
-
-.product-strip .product-strip-icon {
-  width: 56px;
-  height: 56px;
-  margin: 8px auto 12px;
-  border-radius: 50%;
-  background: var(--brook-green-tint);
-  color: var(--brook-green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.product-strip .product-strip-icon svg {
-  width: 30px;
-  height: 30px;
-}
-
-/* A real product photo replaces the icon glyph and fills a larger, square panel. */
-.product-strip .product-strip-icon-photo {
-  width: 100%;
-  height: 100px;
-  margin: 0 0 12px;
-  border-radius: 8px;
+  border-radius: 16px;
   overflow: hidden;
 }
 
-.product-strip .product-strip-icon-photo picture {
+/* Image area: intentionally no background color here — just the product
+   image (or, when a row has no image, the fallback icon glyph). */
+.product-strip .product-strip-media {
+  position: relative;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.product-strip .product-strip-media picture {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.product-strip .product-strip-icon-photo img {
+.product-strip .product-strip-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.product-strip .product-strip-media svg {
+  width: 64px;
+  height: 64px;
+  color: var(--color-neutral-700, #666);
+}
+
+.product-strip .product-strip-badge {
+  position: absolute;
+  z-index: 1;
+  top: 14px;
+  left: 14px;
+  background: var(--brook-red);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.product-strip .product-strip-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background: var(--product-strip-card-background, #fff);
 }
 
 .product-strip h3 {
   font-family: 'Roboto Slab', var(--type-base-font-family);
-  font-size: 0.95rem;
   font-weight: 700;
-  margin: 0 0 4px;
-  line-height: 1.25;
-}
-
-.product-strip .product-strip-unit {
-  margin: 0 0 6px;
-  font-size: 0.8rem;
-  color: var(--color-neutral-700, #666);
+  font-size: 1.05rem;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--color-neutral-900, #1d1d1d);
 }
 
 .product-strip .product-strip-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
   margin: 0;
+}
+
+.product-strip .product-strip-price-now {
   font-family: 'Roboto Slab', var(--type-base-font-family);
   font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--brook-green);
+  font-size: 1.3rem;
+  color: var(--brook-red);
+}
+
+.product-strip .product-strip-price-was {
+  font-size: 0.95rem;
+  color: var(--color-neutral-700, #666);
+  text-decoration: line-through;
+}
+
+.product-strip .product-strip-cta {
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-neutral-900, #1d1d1d);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 12px 16px;
+  cursor: pointer;
 }
 
 @media (min-width: 900px) {
@@ -104,7 +123,6 @@
   }
 
   .product-strip .product-strip-card {
-    width: 190px;
-    padding: 20px;
+    width: 250px;
   }
 }
