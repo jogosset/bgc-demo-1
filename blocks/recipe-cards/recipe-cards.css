@@ -52,27 +52,28 @@
 .recipe-cards .recipe-cards-eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  color: var(--brook-green-deep);
+  color: var(--recipe-cards-text-color, var(--brook-green-deep));
 }
 
 .recipe-cards h3 {
   font-family: 'Roboto Slab', var(--type-base-font-family);
   margin: 8px 0;
+  color: var(--recipe-cards-text-color, inherit);
 }
 
 .recipe-cards .recipe-cards-body p {
   margin: 0 0 12px;
-  font-size: 0.9rem;
-  color: var(--color-neutral-700, #666);
+  font-size: 1rem;
+  color: var(--recipe-cards-text-color, var(--color-neutral-700, #666));
 }
 
 .recipe-cards .recipe-cards-meta {
   display: flex;
   gap: 16px;
-  font-size: 0.8rem;
-  color: var(--color-neutral-700, #666);
+  font-size: 0.9rem;
+  color: var(--recipe-cards-text-color, var(--color-neutral-700, #666));
 }
 
 .recipe-cards .recipe-cards-meta span {
