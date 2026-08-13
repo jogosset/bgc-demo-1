@@ -6,13 +6,13 @@
       "commerce-assets-enabled": true,
       "headers": {
         "all": {
-          "Store": "default"
+          "Store": "brookshires_us"
         },
         "cs": {
           "Magento-Customer-Group": "",
-          "Magento-Store-Code": "main_website_store",
-          "Magento-Store-View-Code": "default",
-          "Magento-Website-Code": "base"
+          "Magento-Store-Code": "brookshires",
+          "Magento-Store-View-Code": "brookshires_us",
+          "Magento-Website-Code": "grocery"
         }
       },
       "analytics": {
