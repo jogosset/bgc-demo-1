@@ -17,6 +17,12 @@ const ICON_THEME = {
   peach: 'green', beef: 'deep', shrimp: 'dark',
 };
 
+// Optional trailing config rows recognized on top of the normal recipe rows
+// (icon/image + text). Authors add a row per setting, e.g. a row reading
+// "Card Background" | "#fff8ec". Any row that doesn't match one of these
+// keys is left alone and treated as a recipe row.
+const CONFIG_KEYS = ['card background', 'text color'];
+
 function icon(name) {
   const key = (name || '').trim().toLowerCase();
   return `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[key] || ''}</svg>`;
@@ -24,16 +30,29 @@ function icon(name) {
 
 /**
  * loads and decorates the recipe-cards block
- * Cells per row: [icon name] [eyebrow, title, description, "time · servings" — one per paragraph]
+ * Cells per row: [icon name, or an image from the assets picker]
+ *                [eyebrow, title, description, "time · servings" — one per paragraph]
+ * Optional trailing rows: "Card Background" | color, "Text Color" | color
  * @param {Element} block The block element
  */
 export default async function decorate(block) {
+  [...block.children].forEach((row) => {
+    const cells = [...row.children];
+    if (cells.length !== 2) return;
+    const key = cells[0].textContent.trim().toLowerCase();
+    if (!CONFIG_KEYS.includes(key)) return;
+    const value = cells[1].textContent.trim();
+    if (value) block.style.setProperty(`--recipe-cards-${key.replace(' ', '-')}`, value);
+    row.remove();
+  });
+
   const list = document.createElement('div');
   list.className = 'recipe-cards-list';
 
   [...block.children].forEach((row) => {
     const [iconCell, textCell] = [...row.children];
-    const iconName = (iconCell ? iconCell.textContent.trim().toLowerCase() : '');
+    const iconImg = iconCell ? iconCell.querySelector('img') : null;
+    const iconName = (iconCell && !iconImg ? iconCell.textContent.trim().toLowerCase() : '');
     const bg = THEMES[ICON_THEME[iconName]] || THEMES.green;
 
     const lines = textCell ? [...textCell.children].filter((el) => el.textContent.trim()) : [];
@@ -45,7 +64,7 @@ export default async function decorate(block) {
     const card = document.createElement('article');
     card.className = 'recipe-cards-card';
     card.innerHTML = `
-      <div class="recipe-cards-art" style="background:${bg};">${icon(iconName)}</div>
+      <div class="recipe-cards-art"${iconImg ? '' : ` style="background:${bg};"`}>${iconImg ? '' : icon(iconName)}</div>
       <div class="recipe-cards-body">
         <span class="recipe-cards-eyebrow">${eyebrowLine ? eyebrowLine.textContent.trim() : ''}</span>
         <h3>${titleLine ? titleLine.textContent.trim() : ''}</h3>
@@ -56,6 +75,7 @@ export default async function decorate(block) {
         </div>
       </div>
     `;
+    if (iconImg) card.querySelector('.recipe-cards-art').append(iconCell.querySelector('picture') || iconImg);
     list.append(card);
   });
 
