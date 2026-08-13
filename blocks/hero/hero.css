@@ -5,16 +5,24 @@
 
 .hero {
   position: relative;
+  display: flex;
+  align-items: center;
   padding: 40px 24px;
   min-height: 300px;
-  text-align: center;
+  text-align: left;
   background-color: var(--hero-background-color, transparent);
 }
 
+/* Text column: kept narrow and left-anchored so the background photo
+   shows through on the right, with the whole column vertically centered
+   in the banner (via the flex rule on .hero above). */
+.hero > div > div:first-child {
+  max-width: 560px;
+}
+
 .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 100%;
+  margin: 0 0 16px;
 }
 
 .hero h1,
@@ -28,14 +36,8 @@
   font-size: 2rem;
 }
 
-/* Lead paragraph (the text right after the heading): narrower than the
-   full block and centered, so it wraps into a couple of lines under the
-   heading. The CTA link paragraph that follows is centered under it too
-   (default block flow). */
 .hero h1 + p {
   max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero picture {
