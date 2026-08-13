@@ -1,7 +1,7 @@
 .cta-banner {
   --brook-ink: #40464b;
 
-  background: var(--brook-ink);
+  background: var(--cta-banner-background-color, var(--brook-ink));
   color: #fff;
   padding: 32px 16px;
 }
