@@ -25,6 +25,7 @@ export default async function decorate(block) {
   [...block.children].forEach((row) => {
     const cells = [...row.children];
     const [iconCell, textCell] = cells;
+    const iconImg = iconCell ? iconCell.querySelector('img') : null;
     const lines = textCell ? [...textCell.children].filter((el) => el.textContent.trim()) : [];
     const [nameLine, unitLine, priceLine, badgeLine] = lines;
     const badgeText = badgeLine ? badgeLine.textContent.trim() : '';
@@ -33,11 +34,12 @@ export default async function decorate(block) {
     card.className = 'product-strip-card';
     card.innerHTML = `
       ${badgeText ? `<span class="product-strip-badge">${badgeText}</span>` : ''}
-      <div class="product-strip-icon">${buildIcon(iconCell ? iconCell.textContent : '')}</div>
+      <div class="product-strip-icon${iconImg ? ' product-strip-icon-photo' : ''}">${iconImg ? '' : buildIcon(iconCell ? iconCell.textContent : '')}</div>
       <h3>${nameLine ? nameLine.textContent.trim() : ''}</h3>
       <p class="product-strip-unit">${unitLine ? unitLine.textContent.trim() : ''}</p>
       <p class="product-strip-price">${priceLine ? priceLine.textContent.trim() : ''}</p>
     `;
+    if (iconImg) card.querySelector('.product-strip-icon').append(iconCell.querySelector('picture') || iconImg);
     scroller.append(card);
   });
 
