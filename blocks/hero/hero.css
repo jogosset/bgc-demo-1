@@ -13,11 +13,13 @@
   background-color: var(--hero-background-color, transparent);
 }
 
-/* Text column: kept narrow and left-anchored so the background photo
-   shows through on the right, with the whole column vertically centered
-   in the banner (via the flex rule on .hero above). */
+/* Text column: kept narrower than the banner so the background photo
+   shows through on the right, nudged in from the left edge, with the
+   whole column vertically centered in the banner (via the flex rule on
+   .hero above). */
 .hero > div > div:first-child {
-  max-width: 560px;
+  max-width: 720px;
+  margin-left: 48px;
 }
 
 .hero h1 {
