@@ -60,4 +60,8 @@
   .hero {
     padding: 40px 32px;
   }
+
+  .hero > div > div:first-child {
+    margin-left: 72px;
+  }
 }
