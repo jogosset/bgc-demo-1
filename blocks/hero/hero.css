@@ -5,41 +5,15 @@
 
 .hero {
   position: relative;
-  display: flex;
-  align-items: center;
   padding: 40px 24px;
   min-height: 300px;
-  text-align: left;
-  background-color: var(--hero-background-color, transparent);
-}
-
-/* Text column: kept narrower than the banner so the background photo
-   shows through on the right, nudged in from the left edge, with the
-   whole column vertically centered in the banner (via the flex rule on
-   .hero above). */
-.hero > div > div:first-child {
-  max-width: 720px;
-  margin-left: 48px;
 }
 
 .hero h1 {
-  max-width: 100%;
-  margin: 0 0 16px;
-}
-
-.hero h1,
-.hero h2,
-.hero h3,
-.hero p {
-  color: var(--hero-text-color, var(--background-color));
-}
-
-.hero p {
-  font-size: 2rem;
-}
-
-.hero h1 + p {
-  max-width: 680px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--background-color);
 }
 
 .hero picture {
@@ -59,9 +33,5 @@
 @media (min-width: 900px) {
   .hero {
     padding: 40px 32px;
-  }
-
-  .hero > div > div:first-child {
-    margin-left: 72px;
   }
 }
