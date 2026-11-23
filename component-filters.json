@@ -44,7 +44,11 @@
       "product-list-page",
       "product-recommendations",
       "targeted-block",
-      "text"
+      "text",
+      "product-teaser",
+      "quote",
+      "tabs",
+      "video"
     ]
   },
   {
@@ -80,6 +84,12 @@
     "components": [
       "text",
       "image"
+    ]
+  },
+  {
+    "id": "tabs",
+    "components": [
+      "tabs-item"
     ]
   }
 ]
